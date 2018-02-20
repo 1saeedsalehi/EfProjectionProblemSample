@@ -1,4 +1,4 @@
-﻿namespace Dto.Objects
+﻿namespace Objects
 {
     public partial class Customer
     {

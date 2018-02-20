@@ -1,4 +1,5 @@
 ﻿using Data;
+using Objects;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -15,11 +16,11 @@ namespace Api.Controllers
         }
 
 
-        public async Task<List<Dto.Objects.Customer>> GetAllCustomers()
+        public async Task<List<Customer>> GetAllCustomers()
         {
             using (SampleDbContext dbContext = new SampleDbContext())
             {
-                return await dbContext.Customers.Select(c => new Dto.Objects.Customer {
+                return await dbContext.Customers.Select(c => new Customer {
                     
                     FullName = c.FirstName + c.LasttName
                 }).ToListAsync();

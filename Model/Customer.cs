@@ -1,4 +1,4 @@
-﻿namespace Model.Objects
+﻿namespace Objects
 {
     public partial class Customer
     {

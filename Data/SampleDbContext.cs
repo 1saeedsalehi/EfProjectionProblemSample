@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using Objects;
+using System.Data.Entity;
 using System.Data.SqlClient;
 
 namespace Data
@@ -13,6 +14,6 @@ namespace Data
         {
 
         }
-        public virtual DbSet<Model.Objects.Customer> Customers { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
     }
 }
