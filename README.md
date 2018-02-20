@@ -22,7 +22,7 @@ In our "Api" we returned
 
 ```
 
-dbContext.Set<EntityAlias.Objects.Customer>().Select(c => new Customer
+dbContext.Set<EntityAlias.Objects.Customer>().Select(c => new DtoAlias.Objects.Customer
 {
   Id = c.Id,
   FullName = string.Concat(c.FirstName,c.LasttName)
