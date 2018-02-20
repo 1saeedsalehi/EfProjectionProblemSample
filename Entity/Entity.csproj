@@ -1,8 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>Objects</RootNamespace>
+    <TargetFramework>net461</TargetFramework>
   </PropertyGroup>
 
   <Import Project="..\Model\Model.projitems" Label="Shared" />

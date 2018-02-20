@@ -1,11 +1,13 @@
-﻿extern alias DataAlias;
-extern alias DtoAlias;
-using DataAlias::Data;
+﻿extern alias DtoAlias;
+extern alias EntityAlias;
+
+using System.Data.Entity;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
+using Data;
+using DtoAlias::Objects;
 
 namespace WebApi.Controllers
 {
@@ -14,13 +16,15 @@ namespace WebApi.Controllers
     {
         
         [HttpGet]
-        public async Task<List<DtoAlias.Objects.Customer>> GetAllCustomers()
+        public async Task<List<Customer>> GetAllCustomers()
         {
             using (SampleDbContext dbContext = new SampleDbContext())
             {
-                return await dbContext.Customers.Select(c => new DtoAlias.Objects.Customer
+                return await dbContext.Set<EntityAlias.Objects.Customer>().Select(c => new Customer
                 {
+                    Id = c.Id,
                     FullName = string.Concat(c.FirstName,c.LasttName)
+                    
                     
                 }).ToListAsync();
 

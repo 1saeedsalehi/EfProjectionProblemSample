@@ -19,11 +19,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Data\Data.csproj">
-      <Aliases>DataAlias</Aliases>
-    </ProjectReference>
+    <ProjectReference Include="..\Data\Data.csproj" />
     <ProjectReference Include="..\Dto\Dto.csproj">
       <Aliases>DtoAlias</Aliases>
+    </ProjectReference>
+    <ProjectReference Include="..\Entity\Entity.csproj">
+      <Aliases>EntityAlias</Aliases>
     </ProjectReference>
   </ItemGroup>
 
