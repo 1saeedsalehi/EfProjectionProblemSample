@@ -1,31 +1,32 @@
-﻿using Data;
-using Objects;
+﻿extern alias DataAlias;
+extern alias DtoAlias;
+using DataAlias::Data;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web.Http;
 
-namespace Api.Controllers
+namespace WebApi.Controllers
 {
-    public class SampleController : ApiController
+    [Route("api/[controller]")]
+    public class SampleController : Controller
     {
-        public SampleController()
-        {
-
-        }
-
-
-        public async Task<List<Customer>> GetAllCustomers()
+        
+        [HttpGet]
+        public async Task<List<DtoAlias.Objects.Customer>> GetAllCustomers()
         {
             using (SampleDbContext dbContext = new SampleDbContext())
             {
-                return await dbContext.Customers.Select(c => new Customer {
+                return await dbContext.Customers.Select(c => new DtoAlias.Objects.Customer
+                {
+                    FullName = string.Concat(c.FirstName,c.LasttName)
                     
-                    FullName = c.FirstName + c.LasttName
                 }).ToListAsync();
-               
+
             }
         }
+
+
     }
 }
