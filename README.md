@@ -20,13 +20,14 @@ We added "Data" project with Entity framework full and at there we added Custome
 
 In our "Api" we returned 
 
-```dbContext.Set<EntityAlias.Objects.Customer>().Select(c => new Customer
-                {
-                    Id = c.Id,
-                    FullName = string.Concat(c.FirstName,c.LasttName)
-                    
-                    
-                }).ToListAsync();
+```
+
+dbContext.Set<EntityAlias.Objects.Customer>().Select(c => new Customer
+{
+  Id = c.Id,
+  FullName = string.Concat(c.FirstName,c.LasttName)
+}).ToListAsync();
+
 ```
 
 Sadly Entity Framework wasn't able to handle this kind of projection )-:
