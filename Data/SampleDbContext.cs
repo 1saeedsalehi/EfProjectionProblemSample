@@ -11,7 +11,7 @@ namespace Data
         {
             Database.SetInitializer<SampleDbContext>(null);
         }
-        public SampleDbContext() :base(new SqlConnection(@"Data Source=.;Initial Catalog=SampleAppDb;Persist Security Info=True;User ID=sa;Password=kronos"), contextOwnsConnection: true)
+        public SampleDbContext() :base(new SqlConnection(@"Data Source=.;Initial Catalog=SampleAppDb;Integrated Security=True;"), contextOwnsConnection: true)
         {
             
         }
